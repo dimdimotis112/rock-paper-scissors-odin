@@ -5,49 +5,36 @@ function getComputerChoice() {
 }
 
 function play(playerSelection, computerChoice) {
-    console.log(`The computer choice == ${computerChoice}`);
-    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase(); // makes the player choice (input) case insesnitive.
     switch (playerSelection) {
         case 'rock':
             switch (computerChoice) {
                 case 'Rock':
-                    console.log("It's a draw! Rock vs Rock.");
-                    break;
+                    return "It's a draw! Rock vs Rock.";
                 case 'Paper':
-                    console.log("You lose! Paper beats Rock.");
-                    break;
+                    return "You lose! Paper beats Rock.";
                 case 'Scissors':
-                    console.log("You win!. Rock beats Scissors.");
-                    break;
+                    return "You win!. Rock beats Scissors.";
             }
-            break;
         case 'paper':
             switch (computerChoice) {
                 case 'Rock':
-                    console.log("You win! Paper beats Rock.");
-                    break;
+                    return "You win! Paper beats Rock.";
                 case 'Paper':
-                    console.log("It's a draw! Paper vs Paper.");
-                    break;
+                    return "It's a draw! Paper vs Paper.";
                 case 'Scissors':
-                    console.log("You lose! Scissors cuts Paper.");
-                    break;
+                    return "You lose! Scissors cuts Paper.";
             }
-            break;
         case 'scissors':
             switch (computerChoice) {
                 case 'Rock':
-                    console.log("You lose! Rock beats Scissors.");
-                    break;
+                    return "You lose! Rock beats Scissors.";
                 case 'Paper':
-                    console.log("You win! Scissors cuts Paper.");
-                    break;
+                    return "You win! Scissors cuts Paper.";
                 case 'Scissors':
-                    console.log("It's a draw! Scissors vs Scissors.");
-                    break;
+                    return "It's a draw! Scissors vs Scissors.";
             }
-            break;
         default:
-            console.log(`Wrong choice ${playerSelection} isn't a playable option.`);
+            return `Wrong choice ${playerSelection} isn't a playable option.`;
     }
 }
