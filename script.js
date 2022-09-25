@@ -38,3 +38,29 @@ function play(playerSelection, computerChoice) {
             return `Wrong choice ${playerSelection} isn't a playable option.`;
     }
 }
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let draws = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let outcome = play(playerChoice, getComputerChoice());
+        console.log(outcome);
+
+        if (outcome.includes("lose")) {
+            computerScore++;
+        } else if (outcome.includes("win")) {
+            playerScore++;
+        } else if (outcome.includes("draw")) draws++;
+    }
+
+    if (playerScore > computerScore) {
+        console.log(`You won with a score ${playerScore} to ${computerScore}, with ${draws} draw/s.`);
+    } else if (playerScore < computerScore) {
+        console.log(`You lost with a score ${playerScore} to ${computerScore}, with ${draws} draw/s.`);
+    } else {
+        console.log(`It's a tie with ${playerScore} to ${computerScore}, with ${draws} draw/s.`);
+    }
+
+}
