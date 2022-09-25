@@ -64,3 +64,5 @@ function game() {
     }
 
 }
+
+playerChoice = prompt("Enter your choice (Rock, Paper, Scissors):");
