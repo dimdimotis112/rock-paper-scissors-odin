@@ -40,11 +40,6 @@ function play(playerSelection, computerChoice) {
 }
 
 function game(result) {
-    let playerScore = 0;
-    let computerScore = 0;
-    let draws = 0;
-
-
     if (result.includes("You win")) {
         console.log(`${result}`);
         playerScore++;
@@ -56,7 +51,14 @@ function game(result) {
         draws++;
     }
 
-    resultOutcome.textContent = result;
+    if (playerScore === 5) {
+        resultOutcome.textContent = "Player wins by reaching the score of 5 first.";
+    } else if (computerScore === 5) {
+        resultOutcome.textContent = "Computer wins by reaching the score of 5 first.";
+    } else {
+        resultOutcome.textContent = `Player score: ${playerScore}, Computer score: ${computerScore}, Draws: ${draws}`
+    }
+
     resultDiv.appendChild(resultOutcome);
 
 }
@@ -64,6 +66,11 @@ function game(result) {
 const buttons = document.querySelectorAll('button');
 const resultDiv = document.querySelector('.result');
 const resultOutcome = document.createElement('div');
+
+// Keeps track of the scores.
+let playerScore = 0;
+let computerScore = 0;
+let draws = 0;
 
 for (let button of buttons) {
     let conclusion;
