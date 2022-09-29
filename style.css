@@ -21,8 +21,8 @@ button:active {
     box-shadow: 3px 7px black;
 }
 
-.result {
-    margin-top: 20px;
+.result div {
+    margin: 20px 0;
     font-size: 22px;
     font-weight: bold;
     color: rgb(13, 90, 90);
