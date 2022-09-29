@@ -55,4 +55,8 @@ function game() {
 
 }
 
-playerChoice = prompt("Enter your choice (Rock, Paper, Scissors):");
+const buttons = document.querySelectorAll('button');
+
+for (let button of buttons) {
+    button.addEventListener('click', () => console.log(play(button.id, getComputerChoice())))
+}
