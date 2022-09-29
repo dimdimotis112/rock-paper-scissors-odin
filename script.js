@@ -53,8 +53,12 @@ function game(result) {
 
     if (playerScore === 5) {
         resultOutcome.textContent = "Player wins by reaching the score of 5 first.";
+        resultOutcome.style.color = "darkgreen";
+        resultOutcome.style.fontSize = "24px";
     } else if (computerScore === 5) {
         resultOutcome.textContent = "Computer wins by reaching the score of 5 first.";
+        resultOutcome.style.color = "darkred";
+        resultOutcome.style.fontSize = "24px";
     } else {
         resultOutcome.textContent = `Player score: ${playerScore}, Computer score: ${computerScore}, Draws: ${draws}`
     }
