@@ -40,22 +40,24 @@ function play(playerSelection, computerChoice) {
 }
 
 function game(result) {
-    if (result.includes("You win")) {
-        console.log(`${result}`);
-        playerScore++;
-    } else if (result.includes("You lose")) {
-        console.log(`${result}`);
-        computerScore++;
-    } else {
-        console.log(`${result}`);
-        draws++;
+    if (playerScore < 5 && computerScore < 5) {
+        if (result.includes("You win")) {
+            console.log(`${result}`);
+            playerScore++;
+        } else if (result.includes("You lose")) {
+            console.log(`${result}`);
+            computerScore++;
+        } else {
+            console.log(`${result}`);
+            draws++;
+        }
     }
 
-    if (playerScore === 5) {
+    if (playerScore >= 5) {
         resultOutcome.textContent = "Player wins by reaching the score of 5 first.";
         resultOutcome.style.color = "darkgreen";
         resultOutcome.style.fontSize = "24px";
-    } else if (computerScore === 5) {
+    } else if (computerScore >= 5) {
         resultOutcome.textContent = "Computer wins by reaching the score of 5 first.";
         resultOutcome.style.color = "darkred";
         resultOutcome.style.fontSize = "24px";
@@ -63,13 +65,27 @@ function game(result) {
         resultOutcome.textContent = `Player score: ${playerScore}, Computer score: ${computerScore}, Draws: ${draws}`
     }
 
+    if (playerScore >= 5 || computerScore >= 5) restart();
     resultDiv.appendChild(resultOutcome);
+}
 
+function restart() {
+    resetButton.textContent = "Restart";
+    resultDiv.after(resetButton);
+
+    resetButton.addEventListener('click', () => {
+        playerScore = 0;
+        computerScore = 0;
+        draws = 0;
+        resetButton.remove();
+        resultOutcome.textContent = '';
+    });
 }
 
 const buttons = document.querySelectorAll('button');
 const resultDiv = document.querySelector('.result');
 const resultOutcome = document.createElement('div');
+const resetButton = document.createElement('button');
 
 // Keeps track of the scores.
 let playerScore = 0;
