@@ -44,16 +44,6 @@ function game() {
     let computerScore = 0;
     let draws = 0;
 
-    for (let i = 0; i < 5; i++) {
-        let outcome = play(playerChoice, getComputerChoice());
-        console.log(outcome);
-
-        if (outcome.includes("lose")) {
-            computerScore++;
-        } else if (outcome.includes("win")) {
-            playerScore++;
-        } else if (outcome.includes("draw")) draws++;
-    }
 
     if (playerScore > computerScore) {
         console.log(`You won with a score ${playerScore} to ${computerScore}, with ${draws} draw/s.`);
