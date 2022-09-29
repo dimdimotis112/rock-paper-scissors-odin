@@ -1,0 +1,29 @@
+* {
+    text-align: center;
+    font-family: Monaco, "Lucida Console", "Courier New";
+}
+
+body {
+    background-color: burlywood;
+}
+
+button {
+    margin: 0 4px;
+    padding: 15px 25px;
+    font-size: 18px;
+    border: 2px solid black;
+    font-weight: bold;
+    background-color: aliceblue;
+}
+
+button:active {
+    background-color: rgb(156, 195, 231);
+    box-shadow: 3px 7px black;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(13, 90, 90);
+}
