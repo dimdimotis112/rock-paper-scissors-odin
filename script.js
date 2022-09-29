@@ -39,24 +39,33 @@ function play(playerSelection, computerChoice) {
     }
 }
 
-function game() {
+function game(result) {
     let playerScore = 0;
     let computerScore = 0;
     let draws = 0;
 
 
-    if (playerScore > computerScore) {
-        console.log(`You won with a score ${playerScore} to ${computerScore}, with ${draws} draw/s.`);
-    } else if (playerScore < computerScore) {
-        console.log(`You lost with a score ${playerScore} to ${computerScore}, with ${draws} draw/s.`);
+    if (result.includes("You win")) {
+        console.log(`${result}`);
+        playerScore++;
+    } else if (result.includes("You lose")) {
+        console.log(`${result}`);
+        computerScore++;
     } else {
-        console.log(`It's a tie with ${playerScore} to ${computerScore}, with ${draws} draw/s.`);
+        console.log(`${result}`);
+        draws++;
     }
+
+    resultOutcome.textContent = result;
+    resultDiv.appendChild(resultOutcome);
 
 }
 
 const buttons = document.querySelectorAll('button');
+const resultDiv = document.querySelector('.result');
+const resultOutcome = document.createElement('div');
 
 for (let button of buttons) {
-    button.addEventListener('click', () => console.log(play(button.id, getComputerChoice())))
+    let conclusion;
+    button.addEventListener('click', () => game(play(button.id, getComputerChoice())));
 }
